@@ -27,8 +27,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
-|add_member|string|null: false|
+|name|string|null: false, unique: true|
 
 ### Association
   has_many :user_groups
@@ -42,10 +41,13 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|message|text|null: false|
-|image|string|null: false|
+|message|text|
+|image|string|
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
+
+### validation
+validates :message_or_image, presence:true
 
 ### Association
   belongs_to :user
