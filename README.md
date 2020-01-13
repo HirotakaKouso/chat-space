@@ -47,7 +47,7 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 
 ### validation
-validates :message_or_image, presence:true
+validates :message_present, presence:true
 
 ### Association
   belongs_to :user
