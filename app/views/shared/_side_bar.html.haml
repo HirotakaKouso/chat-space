@@ -1,8 +1,8 @@
 .side-bar
   .side-bar__side-header
     .header-name
+      kouso
       %h3.user-name
-        = current_user.name
       %ul.icon
         %li.list
           = link_to new_group_path(current_user), class: "contents__btn" do
@@ -11,8 +11,10 @@
           = link_to edit_user_path(current_user), class: "contents__btn" do
             = icon('fa', 'fas fa-edit')
   .side-bar__groups
-    .group-list
-      .group-name
-        techcamp
-      .group-text
-        おはよう
+    - current_user.groups.each do |group|
+      .group-list
+        = link_to '#' do
+          .group-name
+            = group.name
+          .group-text
+            メッセージはまだありません。
