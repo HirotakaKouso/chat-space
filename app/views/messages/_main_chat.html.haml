@@ -1,37 +1,32 @@
+
 .chat-main
   .chat-main__main-header
     .left-header
       .header-group
-        test
+        = @group.name
       .header-name
-        member
+        - @group.users.each do |user|
+          = user.name
     .right-header
       .edit-flame
-        = link_to "#", class: "edit__btn" do
+        = link_to edit_group_path(current_user), class: "edit__btn" do
           Edit
-          
-  .chat-main__message-list
-    .submit
-      kouso
-      .submit-right
-        2019/11/11
-    .comment
-      おはよう
-    .submit
-      kouso
-      .submit-right
-        2019/11/11
-    .comment
-      おはよう
 
-  .chat-main__message-form
-    .left-form
-      .text
-      こんにちは
-      .image
-        %label{class: "image__btn"}
-          = icon('fas', 'image')
-          %input{type: "file",class: "images"}
-    .ringht-form
-      = link_to "#", class: "send__btn" do
-        Send
+  .chat-main__message-list
+    .messages
+      = render @messages
+    .submit
+      .submit-right
+    .comment
+
+  .chat-main__message-form 
+    = form_for [@group, @message] do |f|
+      .left-form
+        .text
+          = f.text_field :content, class: 'texts', placeholder: 'type a message'
+        .image
+          = f.label :image, class: 'image__btn' do
+            = icon('fas', 'image', 'class': 'icon')
+            = f.file_field :image, class: 'images'
+      .ringht-form
+        = f.submit 'Send', class: 'send__btn'
