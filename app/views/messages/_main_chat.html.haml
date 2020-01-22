@@ -5,6 +5,7 @@
       .header-group
         = @group.name
       .header-name
+        member:
         - @group.users.each do |user|
           = user.name
     .right-header
