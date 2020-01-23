@@ -55,7 +55,6 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    console.log(formData)
     var url = $(this).attr('action')
     $.ajax({
       url: url,
@@ -100,7 +99,7 @@ $(function(){
       }
       })
       .fail(function() {
-        console.log('error');
+        alert("メッセージ送信に失敗しました");
       });
     };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
