@@ -1,11 +1,13 @@
 #サーバ上でのアプリケーションコードが設置されているディレクトリを変数に入れておく
 app_path = File.expand_path('../../../', __FILE__)
 
+worker_processes 1
+
 #アプリケーションサーバの性能を決定する
 working_directory "#{app_path}/current"
 
 #アプリケーションの設置されているディレクトリを指定
-working_directory app_path
+
 
 #Unicornの起動に必要なファイルの設置場所を指定
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
