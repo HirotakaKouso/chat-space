@@ -6,9 +6,6 @@ worker_processes 1
 #アプリケーションサーバの性能を決定する
 working_directory "#{app_path}/current"
 
-#アプリケーションの設置されているディレクトリを指定
-
-
 #Unicornの起動に必要なファイルの設置場所を指定
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 
