@@ -10,7 +10,7 @@
           = user.name
     .right-header
       .edit-flame
-        = link_to edit_group_path(current_user), class: "edit__btn" do
+        = link_to edit_group_path(@group.id), class: "edit__btn" do
           Edit
 
   .chat-main__message-list
