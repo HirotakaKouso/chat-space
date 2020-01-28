@@ -79,7 +79,7 @@ $(function(){
   });
 
     var reloadMessages = function() {
-      last_message_id = $('.message:last').data("message-id");
+      last_message_id = $('.message_box:last').data("message-id");
       $.ajax({
         url: "api/messages",
         type: 'get',
@@ -88,21 +88,21 @@ $(function(){
       })
       .done(function(messages) {
         if (messages.length !== 0) {
-        var insertHTML = '';
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
-        $('.chat-main__message-list').append(insertHTML);
-        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
-        $("#new_message")[0].reset();
-        $(".send__btn").prop("disabled", false);
-      }
+          var insertHTML = '';
+          $.each(messages, function(i, message) {
+            insertHTML += buildHTML(message)
+          });
+          $('.chat-main__message-list').append(insertHTML);
+          $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+          $("#new_message")[0].reset();
+          $(".send__btn").prop("disabled", false);
+        }
       })
       .fail(function() {
         alert("メッセージ送信に失敗しました");
       });
     };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 8000);
+    setInterval(reloadMessages, 7000);
   }
 });
